@@ -1,0 +1,14 @@
+{
+  "name": "file-validation",
+  "version": "0.0.0",
+  "description": "File validation sample",
+  "repository": "https://github.com/sgoyalnet/angi-file-demo",
+  "devDependencies": {
+    "angi-file": "^1.0.0",
+    "http-server": "^0.9.0"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./"
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="net.sgoyal.example" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="net.sgoyal.example" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="net.sgoyal.example" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="net.sgoyal.example" class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>File validation directive usages</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body ng-controller="AppCtrl">
+	<!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+	<div class="container">
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation"><a href="https://github.com/sgoyalnet/angi-file-demo" target="_blank">Get the code&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+				</ul>
+			</nav>
+			<h3 class="text-muted">file validation</h3>
+		</div>
+		<div class="container">
+
+			<form class="form-signin" name="userform" novalidate>
+				<label>Phone no</label>
+				<input type="text" ng-change="submitted=false" ng-required="true" class="form-control" name="phone" placeholder="Enter phone no" ng-model="form.phoneNo" autofocus>
+				<div ng-messages="userform.phone.$error" role="alert" ng-show="userform.phone.$error && submitted">
+						<div ng-message="required" class="msg-alert">phone is required</div>
+				</div>
+				<label>Resume</label>
+				<input multiple formats="jpg,txt" type="file" ng-change="submitted=false" ng-model="form.resume" required name="resume" class="form-control" placeholder="Select Resume">
+				<p class="help-block">Supported file formats are jpg,txt</p>
+				<div ng-messages="userform.resume.$error" role="alert" ng-show="userform.resume.$error && submitted">
+						<div ng-message="required" class="msg-alert">resume is required</div>
+						<div ng-message="validFormat" class="msg-alert">Unsupported file type</div>
+				</div>
+				<button type="submit" ng-click="saveUser(userform);submitted=true;" class="btn btn-lg btn-primary btn-block">Save</button>
+			</form>
+
+		</div>
+		<!-- /container -->
+		<footer class="footer">
+			<p>Design taken from <a href="http://getbootstrap.com/getting-started/#examples" target="_blank">Examples from Boorstrap</a></p>
+		</footer>
+
+	</div>
+	<!-- /container -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.6/angular-messages.min.js"></script>
+	<script src="node_modules/angi-file/dist/angi-file.min.js"></script>
+	<script src="app.js"></script>
+</body>
+
+</html>
